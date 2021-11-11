@@ -1,42 +1,63 @@
+import urllib.request
+import re
+import time
 import os
-import sys
-import subprocess
-import json
-import socket
-from urllib.request import urlopen
-from concurrent import futures
 
-def lookup():
-    os.system('')
-    client = 1
-    client = input(f'''
- [*] Enter IP Address: ''')
-    url1 = "http://ip-api.com/json/"
-    url2 = "http://extreme-ip-lookup.com/json/"
-    trackedip1 = urlopen(url1 + client)
-    trackedip2 = urlopen(url2 + client)
-    data1 = trackedip1.read() 
-    data2 = trackedip2.read()
-    values1 = json.loads(data1)
-    values2 = json.loads(data2)
-    
-    print(f''' 
- [>] IP: ''' + values1['query'])
-    print(f" [>] City: " + values1['city'])
-    print(f" [>] Country: " + values1['country'])
-    print(f" [>] Name of the region: " + values1['regionName'])
-    print(f" [>] Region: " + values1['region'])
-    print(f" [>] ISP: " + values1['isp'])
-    print(f" [>] ZIP Code: " + values1['zip'])
-    print(f" [>] IP Type: " + values2['ipType'])
-    print(f" [>] Organisation: " + values2['org'])
-    print(f" [>] City: " + values2['city'])
-    print(f" [>] Latitude: " + values2['lat'])
-    print(f" [>] Longitude: " + values2['lon'])
 
-def main():
-    if len(sys.argv) < 2:
-        os.system('')
-        lookup()
+def angga():
+	hi = input("\n\033[97m\nTap To Enter")
+time.sleep(2)
 
-main()
+os.system("clear")
+hi = urllib.request.Request('https://ipapi.co/xml')
+c = urllib.request.urlopen(hi)
+y = c.read()
+Success = c.getcode()
+
+
+os.system("clear")
+
+angga()
+time.sleep(3)
+print("\n")
+regex = re.findall(r'<ip>(.*?)</ip>',str(y))
+for regex in regex:
+    print("\033[97mYour Ip : \033[31m" + regex)
+regex = re.findall(r'<city>(.*?)</city>',str(y))
+print('\033[97mSuccess : \033[92m{}'.format(c.getcode()))
+print("\n")
+time.sleep(3)
+
+for regex in regex:
+    print("\033[97mCity : " + regex)
+regex = re.findall(r'<region>(.*?)</region>',str(y))
+for regex in regex:
+    print("\033[97mRegion : " + regex)
+regex = re.findall(r'<region_code>(.*?)</region_code>',str(y))
+for regex in regex:
+    print("\033[97mRegion Code : " + regex)
+regex = re.findall(r'<country>(.*?)</country>',str(y))
+for regex in regex:
+    print("\033[97mIn Eu : " + regex)
+regex = re.findall(r'<latitude>(.*?)</latitude>',str(y))
+for regex in regex:
+    print("\033[97mLatitude : " + regex)
+regex = re.findall(r'<longitude>(.*?)</longitude>',str(y))
+for regex in regex:
+    print("\033[97mLongitude : " + regex)
+regex = re.findall(r'<timezone>(.*?)</timezone>',str(y))
+for regex in regex:
+    print("\033[97mTimezone : " + regex)
+regex = re.findall(r'<utc_offset>(.*?)</utc_offset>',str(y))
+for regex in regex:
+    print("\033[97mUtc Offset : " + regex)
+regex = re.findall(r'<country_calling_code>(.*?)</country_calling_code>',str(y))
+for regex in regex:
+    print("\033[97mCountry Calling Code : " + regex)
+regex = re.findall(r'<currency>(.*?)</currency>',str(y))
+for regex in regex:
+    print("\033[97mAns : " + regex)
+regex = re.findall(r'<org>(.*?)</org>',str(y))
+for regex in regex:
+    print("\033[97mOrg : " + regex)
+time.sleep(1.5)
