@@ -6,6 +6,6 @@ def render(text,style):
     print(f.renderText(text))
     print("\t\t Created By: Anmol | Vaibhav | Aarushi | Harshit \n \n")
 
-render('R+ Sub-Domains','slant')
+render('R+ Web-Recon','slant')
 domain = input("[*] Enter Target Domain: \t")
 os.system("gau --subs {}".format(domain))
