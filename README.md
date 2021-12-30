@@ -12,6 +12,11 @@ A Unified Tool for Reconnaissance.
   * Honeypot-Detection
   * NSLookup
 
+### Installation 
+- ```python
+  python setup.py
+  ```
+
 ### Usage
 - It is very simple to use Recon-Plus tool:
   ```python
