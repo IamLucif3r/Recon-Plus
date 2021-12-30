@@ -5,7 +5,7 @@ def render(text,style):
     print("\033[H\033[J") 
     f = Figlet(font=style)
     print(f.renderText(text))
-    print("\t Created By: Anmol | Vaibhav | Aarushi | Harshit \n \n")
+    print("\t [Created By: Anmol | Vaibhav | Aarushi | Harshit] \n \n")
 
 class reconPlus(object):
 
@@ -50,14 +50,14 @@ if __name__ == "__main__":
         print("3.Honeypot Detection")
         print("4.IP Lookup")
         print("5.Name Server Lookup")
-        print("6.Web - Recon")
+        print("6.Subdomain Finder")
         print("7.CMS Scanner")
         print("8.Exit!")
-        n = int(input("Select Your Option [1-5]: "))
+        n = int(input("\n \nSelect Your Option [1-5]: "))
         if n==1:
             c.port_scanner()
         elif n==2:
-            c.subdomain()
+            c.web_recon()
         elif n==3:
             c.honeypot_detect()
         elif n==4:
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         elif n==5:
             c.ns_lookup()
         elif n==6:
-            c.web_recon()
+            c.subdomain()
         elif n==7:
             c.cms_scanner()
         elif n==8:
@@ -76,5 +76,3 @@ if __name__ == "__main__":
         ans = input("\n\n Enter 0 to continue ... \t")
         if ans == 0:
             break;
-
-    #c.test_file()
